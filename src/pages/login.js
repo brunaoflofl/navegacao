@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StyleSheet,
+  TouchableOpacity 
+} from 'react-native';
+import {Actions} from 'react-native-router-flux'
 import Logo from '../components/logo'
 import Form from '../components/form'
 
+
 export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
+ signup(){
+   Actions.signup()
+ }
 
   render() {
     return (
@@ -17,7 +22,7 @@ export default class Login extends Component {
         <Form type="Login"/>
         <View style={styles.signupTextCont}>
             <Text style={styles.signupText}>Don't have an account yet? </Text>
-            <Text style={styles.signupButton}>Signup</Text>
+            <TouchableOpacity onPress={this.signup}><Text style={styles.signupButton}>Signup</Text></TouchableOpacity>
 
         </View>
       </View>
